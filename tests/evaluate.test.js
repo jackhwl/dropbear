@@ -1,19 +1,19 @@
-import { evaluate } from '../src/evaluate';
+import { evaluate } from '../src/evaluate'
 
 describe(evaluate, () => {
-  it.skip('should fall back to returning a primitive numeric value', () => {
-    const ast = { type: 'NumericLiteral', value: 2 };
+  it('should fall back to returning a primitive numeric value', () => {
+    const ast = { type: 'NumericLiteral', value: 2 }
 
-    expect(evaluate(ast)).toBe(2);
-  });
+    expect(evaluate(ast)).toBe(2)
+  })
 
-  it.skip('should fall back to returning a primitive string value', () => {
-    const ast = { type: 'StringValue', value: 'Hello' };
+  it('should fall back to returning a primitive string value', () => {
+    const ast = { type: 'StringValue', value: 'Hello' }
 
-    expect(evaluate(ast)).toBe('Hello');
-  });
+    expect(evaluate(ast)).toBe('Hello')
+  })
 
-  it.skip('should be able to evaluate a single expression', () => {
+  it('should be able to evaluate a single expression', () => {
     const ast = {
       type: 'CallExpression',
       name: 'add',
@@ -21,14 +21,14 @@ describe(evaluate, () => {
         { type: 'NumericLiteral', value: 2 },
         { type: 'NumericLiteral', value: 3 },
       ],
-    };
+    }
 
-    const result = evaluate(ast);
+    const result = evaluate(ast)
 
-    expect(result).toBe(5);
-  });
+    expect(result).toBe(5)
+  })
 
-  it.skip('should be able to evaluate a nested expression', () => {
+  it('should be able to evaluate a nested expression', () => {
     const ast = {
       type: 'CallExpression',
       name: 'add',
@@ -44,17 +44,17 @@ describe(evaluate, () => {
           ],
         },
       ],
-    };
+    }
 
-    const result = evaluate(ast);
+    const result = evaluate(ast)
 
-    expect(result).toBe(6);
-  });
+    expect(result).toBe(6)
+  })
 
   it.skip('should be able to lookup identifiers in the environment', () => {
-    const ast = { type: 'Identifier', name: 'pi' };
-    expect(evaluate(ast)).toBe(Math.PI);
-  });
+    const ast = { type: 'Identifier', name: 'pi' }
+    expect(evaluate(ast)).toBe(Math.PI)
+  })
 
   it.skip('should be able to highest number in a range', () => {
     const ast = {
@@ -65,8 +65,8 @@ describe(evaluate, () => {
         { type: 'NumericLiteral', value: 3 },
         { type: 'NumericLiteral', value: 10 },
       ],
-    };
+    }
 
-    expect(evaluate(ast)).toBe(10);
-  });
-});
+    expect(evaluate(ast)).toBe(10)
+  })
+})
