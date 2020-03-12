@@ -1,7 +1,9 @@
-const { traverse } = require('./traverse');
+const { traverse } = require('./traverse')
 
-const transform = node => {};
+const transform = node => {
+  return node
+}
 
-const specialForms = {};
+const specialForms = {}
 
-module.exports = { specialForms, transform };
+module.exports = { specialForms, transform }
