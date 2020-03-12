@@ -11,14 +11,25 @@ const parenthesize = tokens => {
     while (!isClosingParenthesis(token.value)) {
       expression.push(parenthesize(token))
     }
+
+    pop(tokens)
+    return expression
   }
 
-  pop(tokens)
-  return expression
+  return token
 }
 
 const parse = tokens => {
-  const token = pop(tokens)
+  if (Array.isArray(tokens)) {
+    const [first, ...rest] = tokens
+    return {
+      type: 'CallExpression',
+      name: first.value,
+      arguments: rest.map(parse),
+    }
+  }
+
+  const token = tokens
 
   if (token.type === 'Number') {
     return {
