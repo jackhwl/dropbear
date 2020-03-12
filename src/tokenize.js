@@ -75,7 +75,7 @@ const tokenize = input => {
 
     throw new Error(`${character} is not valid`)
   }
-
+  //console.log('tokens=', tokens)
   return tokens
 }
 

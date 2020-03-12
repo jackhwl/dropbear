@@ -3,18 +3,22 @@ const { specialForms } = require('./special-forms')
 const { peek, pop } = require('./utilities')
 
 const parenthesize = tokens => {
+  //console.log('tokens=', tokens)
   const token = pop(tokens)
+  //console.log('token0=', token)
 
   if (isOpeningParenthesis(token.value)) {
     const expression = []
 
-    while (!isClosingParenthesis(token.value)) {
-      expression.push(parenthesize(token))
+    while (!isClosingParenthesis(peek(tokens).value)) {
+      expression.push(parenthesize(tokens))
     }
 
     pop(tokens)
     return expression
   }
+
+  //console.log('token1=', token)
 
   return token
 }
@@ -30,6 +34,8 @@ const parse = tokens => {
   }
 
   const token = tokens
+
+  //  const token = pop(tokens)
 
   if (token.type === 'Number') {
     return {

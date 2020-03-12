@@ -17,6 +17,7 @@ const getIdentifier = node => {
 }
 
 const evaluate = node => {
+  //console.log('evaluate node=', node)
   if (node.type === 'CallExpression') return apply(node)
   if (node.type === 'Identifier') return getIdentifier(node)
   if (node.value) return node.value

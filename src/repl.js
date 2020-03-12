@@ -14,7 +14,7 @@ const repl = async () => {
   try {
     const answers = await askQuestions()
     const { COMMAND } = answers
-
+    //console.log('COMMAND=', COMMAND.trim())
     if (COMMAND.trim()) {
       console.log(chalk.yellow(parseAndEvaluate(COMMAND)))
     }
