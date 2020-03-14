@@ -1,7 +1,7 @@
-const { toJavaScript } = require('../src/to-javascript');
+const { toJavaScript } = require('../src/to-javascript')
 
 describe(toJavaScript, () => {
-  it.skip('should reformate Dropbear to valid JavaScript', () => {
+  it('should reformate Dropbear to valid JavaScript', () => {
     const ast = {
       type: 'CallExpression',
       name: 'add',
@@ -17,8 +17,8 @@ describe(toJavaScript, () => {
           ],
         },
       ],
-    };
+    }
 
-    expect(toJavaScript(ast)).toBe('add(2, 3, subtract(5, 4))');
-  });
-});
+    expect(toJavaScript(ast)).toBe('add(2, 3, subtract(5, 4))')
+  })
+})
