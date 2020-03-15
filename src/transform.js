@@ -10,6 +10,7 @@ const transform = node => {
       },
     },
   })
+  return node
 }
 
 const specialForms = {
